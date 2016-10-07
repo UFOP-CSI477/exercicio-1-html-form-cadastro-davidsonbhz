@@ -7,13 +7,16 @@
     </head>
     <body>
 
+        <div>
+            Formulário inserindo elementos em uma tabela usando jquery
+        </div>
 
         <div id="formulario">
-          <input type="text" placeholder="Nome" id="nome" />
-          <input type="email" placeholder="Email" id="email" />
-          <input type="text" placeholder="Idade" id="idade" />
-          <br />
-          <input type="button" value="Adicionar" onclick="adiciona();" />
+            <input type="text" placeholder="Nome" id="nome" />
+            <input type="email" placeholder="Email" id="email" />
+            <input type="text" placeholder="Idade" id="idade" />
+            <br />
+            <input type="button" value="Adicionar" onclick="adiciona();" />
         </div>
 
         <div id="tabela">
@@ -26,7 +29,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                 </tbody>
             </table>
 
@@ -34,15 +37,23 @@
 
 
         <!-- Plugin JavaScript -->
+        <script src="jquery/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-        
+
         <script language="javascript">
-            
-            function adiciona() {
-                $('#tdados > tbody:last-child').append('<tr>lalla</tr><tr>lelel</tr>');
-            }
-            
-            
+
+                function adiciona() {
+                    $("#tdados").find('tbody')
+                            .append($('<tr>')
+                                    .append($('<td>').text($('#nome').val()))
+                                    .append($('<td>').text($('#email').val()))
+                                    .append($('<td>').text($('#idade').val()))) ;
+
+
+                    //alert($("#tdados").html());
+                }
+
+
         </script>
 
     </body>
